@@ -14,6 +14,23 @@
     .product {
       @include directionX;
       column-gap: 50px;
+      .thumbnailImage {
+        width: 62px;
+        height: 62px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      img:hover {
+        opacity: 0.6;
+      }
+      .thumbnailImage:hover {
+        background: white;
+      }
+      .activeThumbnail img {
+        border-radius: 7px;
+        opacity: 0.5;
+        border: 3px solid $orange;
+      }
     }
     .product img {
       border-radius: 7px;

@@ -8,11 +8,11 @@ const Navbar = () => {
         <div className={classes.leftBrand}>
           <div className={classes.titleBrand}>sneakers</div>
           <div className={classes.menuBrand}>
-            <div>Collections</div>
-            <div>Men</div>
-            <div>Women</div>
-            <div>About</div>
-            <div>Contact</div>
+            <div className={classes.listBrand}>Collections</div>
+            <div className={classes.listBrand}>Men</div>
+            <div className={classes.listBrand}>Women</div>
+            <div className={classes.listBrand}>About</div>
+            <div className={classes.listBrand}>Contact</div>
           </div>
         </div>
         <div className={classes.rightNavbar}>
@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className={classes.vector}>
+      {/* <div className={classes.vector}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1141"
@@ -44,8 +44,8 @@ const Navbar = () => {
         >
           <path d="M0 2L1141 1" stroke="#F7F8FD" stroke-width="2" />
         </svg>
-      </div>
-      <hr />
+      </div> */}
+      {/* <hr /> */}
     </div>
   );
 };

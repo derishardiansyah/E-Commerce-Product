@@ -37,7 +37,11 @@ const Content = () => {
         </div>
         <div className={classes.product}>
           <div
-            className={classes.thumbnailImage}
+            className={`${classes.thumbnailImage} ${
+              selectedImage === "/Assets/images/image-product-1.jpg"
+                ? classes.activeThumbnail
+                : ""
+            }`}
             onClick={() =>
               handleThumbnailClick("/Assets/images/image-product-1.jpg")
             }
@@ -50,7 +54,11 @@ const Content = () => {
             />
           </div>
           <div
-            className={classes.thumbnailImage}
+            className={`${classes.thumbnailImage} ${
+              selectedImage === "/Assets/images/image-product-2.jpg"
+                ? classes.activeThumbnail
+                : ""
+            }`}
             onClick={() =>
               handleThumbnailClick("/Assets/images/image-product-2.jpg")
             }
@@ -63,7 +71,11 @@ const Content = () => {
             />
           </div>
           <div
-            className={classes.thumbnailImage}
+            className={`${classes.thumbnailImage} ${
+              selectedImage === "/Assets/images/image-product-3.jpg"
+                ? classes.activeThumbnail
+                : ""
+            }`}
             onClick={() =>
               handleThumbnailClick("/Assets/images/image-product-3.jpg")
             }
@@ -76,7 +88,11 @@ const Content = () => {
             />
           </div>
           <div
-            className={classes.thumbnailImage}
+            className={`${classes.thumbnailImage} ${
+              selectedImage === "/Assets/images/image-product-4.jpg"
+                ? classes.activeThumbnail
+                : ""
+            }`}
             onClick={() =>
               handleThumbnailClick("/Assets/images/image-product-4.jpg")
             }

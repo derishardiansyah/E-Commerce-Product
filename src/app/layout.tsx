@@ -15,6 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/shoes.png" type="image/png" />
       <body className={kumbh.className}>{children}</body>
     </html>
   );
