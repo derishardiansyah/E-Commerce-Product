@@ -29,6 +29,12 @@
         align-items: center;
         font-weight: 400;
         font-size: 15px;
+        .menuBrand:active {
+          border-bottom: 1px solid $orange;
+        }
+        .menuBrand:hover {
+          border-bottom: 1px solid $orange;
+        }
       }
     }
     .rightNavbar {
@@ -41,5 +47,12 @@
     height: 1px;
     margin-top: 12px;
     margin-left: 147px;
+  }
+  hr {
+    height: 1px;
+    border: 2px solid $orange;
+    width: 55px;
+    margin-top: 10px;
+    margin-left: 531px;
   }
 }

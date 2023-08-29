@@ -6,6 +6,10 @@ import classes from "./style.module.scss";
 
 const Content = () => {
   const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(
+    "/Assets/images/image-product-1.jpg"
+  );
+
   const handleMin = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -15,42 +19,75 @@ const Content = () => {
   const handlePlus = () => {
     setQuantity(quantity + 1);
   };
+
+  const handleThumbnailClick = (newImage: string) => {
+    setSelectedImage(newImage);
+  };
+
   return (
     <div className={classes.content}>
       <div className={classes.imageProduct}>
         <div className={classes.thumbnail}>
           <Image
-            src="/Assets/images/image-product-1.jpg"
+            src={selectedImage}
             width={400}
             height={400}
             alt="ThumbnailProduct"
           />
         </div>
         <div className={classes.product}>
-          <Image
-            src="/Assets/images/image-product-1.jpg"
-            width={62}
-            height={62}
-            alt="Product"
-          />
-          <Image
-            src="/Assets/images/image-product-2.jpg"
-            width={62}
-            height={62}
-            alt="Product"
-          />
-          <Image
-            src="/Assets/images/image-product-3.jpg"
-            width={62}
-            height={62}
-            alt="Product"
-          />
-          <Image
-            src="/Assets/images/image-product-4.jpg"
-            width={62}
-            height={62}
-            alt="Product"
-          />
+          <div
+            className={classes.thumbnailImage}
+            onClick={() =>
+              handleThumbnailClick("/Assets/images/image-product-1.jpg")
+            }
+          >
+            <Image
+              src="/Assets/images/image-product-1.jpg"
+              width={62}
+              height={62}
+              alt="Product-1"
+            />
+          </div>
+          <div
+            className={classes.thumbnailImage}
+            onClick={() =>
+              handleThumbnailClick("/Assets/images/image-product-2.jpg")
+            }
+          >
+            <Image
+              src="/Assets/images/image-product-2.jpg"
+              width={62}
+              height={62}
+              alt="Product-2"
+            />
+          </div>
+          <div
+            className={classes.thumbnailImage}
+            onClick={() =>
+              handleThumbnailClick("/Assets/images/image-product-3.jpg")
+            }
+          >
+            <Image
+              src="/Assets/images/image-product-3.jpg"
+              width={62}
+              height={62}
+              alt="Product-3"
+            />
+          </div>
+          <div
+            className={classes.thumbnailImage}
+            onClick={() =>
+              handleThumbnailClick("/Assets/images/image-product-4.jpg")
+            }
+          >
+            <Image
+              src="/Assets/images/image-product-4.jpg"
+              width={62}
+              height={62}
+              alt="Product-4"
+            />
+          </div>
         </div>
       </div>
       <div className={classes.description}>

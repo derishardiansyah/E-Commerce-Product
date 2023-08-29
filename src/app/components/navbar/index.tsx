@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className={classes.rightNavbar}>
           <div className={classes.cart}>
             <Image
-              src="/Assets/images/icon-cart.svg"
+              src="/Assets/images/icon-cart-gray.svg"
               width={20}
               height={20}
               alt="Cart"
@@ -45,6 +45,7 @@ const Navbar = () => {
           <path d="M0 2L1141 1" stroke="#F7F8FD" stroke-width="2" />
         </svg>
       </div>
+      <hr />
     </div>
   );
 };
