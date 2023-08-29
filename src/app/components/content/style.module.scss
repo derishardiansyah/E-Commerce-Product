@@ -31,7 +31,6 @@
     }
     .productName {
       margin-top: 19px;
-
       font-size: 44px;
       font-weight: 700;
       color: $very-dark-blue;
@@ -39,7 +38,6 @@
     }
     .productDescription {
       margin-top: 35px;
-
       font-size: 16px;
       font-weight: 500;
       line-height: 26px;
@@ -65,6 +63,55 @@
           line-height: 26px;
           color: $orange;
           text-align: center;
+        }
+      }
+    }
+    .normalPrice {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0.48px;
+      color: $very-dark-blue;
+    }
+    .cartProduct {
+      @include directionX;
+      column-gap: 10px;
+      margin-top: 20px;
+      .boxAdd {
+        @include directionX;
+        justify-content: space-between;
+        width: 157px;
+        height: 55px;
+        align-items: center;
+        padding: 10px 16px;
+        border-radius: 10px;
+        background-color: $ligh-gray;
+        .numberProduct {
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 1.28px;
+          color: $black;
+        }
+      }
+      .boxCart {
+        @include directionX;
+        width: 273px;
+        height: 54px;
+        padding: 17px 77px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0px 8px 10px 0px #ffede0;
+        background-color: $orange;
+        border-radius: 10px;
+        .imageCart {
+          color: white;
+        }
+        .addToCart {
+          font-size: 16px;
+          color: $white;
+          font-weight: 700;
         }
       }
     }

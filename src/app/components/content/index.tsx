@@ -1,7 +1,20 @@
+"use client";
+
 import Image from "next/image";
+import React, { useState } from "react";
 import classes from "./style.module.scss";
 
 const Content = () => {
+  const [quantity, setQuantity] = useState(1);
+  const handleMin = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handlePlus = () => {
+    setQuantity(quantity + 1);
+  };
   return (
     <div className={classes.content}>
       <div className={classes.imageProduct}>
@@ -54,7 +67,43 @@ const Content = () => {
             <div className={classes.discount}>50%</div>
           </div>
         </div>
-        <div className={classes.normalPrice}></div>
+        <div className={classes.normalPrice}>
+          <s>$250.00</s>
+        </div>
+        <div className={classes.cartProduct}>
+          <div className={classes.addProduct}>
+            <div className={classes.boxAdd}>
+              <Image
+                src="/Assets/images/icon-minus.svg"
+                width={12}
+                height={4}
+                alt="min Product"
+                onClick={handleMin}
+              />
+              <div className={classes.numberProduct}>{quantity}</div>
+              <Image
+                src="/Assets/images/icon-plus.svg"
+                width={12}
+                height={10}
+                alt="plus Product"
+                onClick={handlePlus}
+              />
+            </div>
+          </div>
+          <div className={classes.addCart}>
+            <div className={classes.boxCart}>
+              <div className={classes.imageCart}>
+                <Image
+                  src="/Assets/images/icon-cart-white.svg"
+                  width={17}
+                  height={15}
+                  alt="cart Product"
+                />
+              </div>
+              <div className={classes.addToCart}>Add to cart</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
