@@ -1,0 +1,72 @@
+@import "@styles/base";
+
+.content {
+  @include directionX;
+  margin-top: 50px;
+  margin-left: 211px;
+  margin-right: 232px;
+  .imageProduct {
+    @include directionY;
+    row-gap: 30px;
+    .thumbnail img {
+      border-radius: 15px;
+    }
+    .product {
+      @include directionX;
+      column-gap: 50px;
+    }
+    .product img {
+      border-radius: 7px;
+    }
+  }
+  .description {
+    margin-top: 50px;
+    margin-left: 130px;
+    .productCompany {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.12px;
+      text-transform: uppercase;
+      color: $orange;
+    }
+    .productName {
+      margin-top: 19px;
+
+      font-size: 44px;
+      font-weight: 700;
+      color: $very-dark-blue;
+      line-height: 48px;
+    }
+    .productDescription {
+      margin-top: 35px;
+
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 26px;
+      color: $gray;
+    }
+    .price {
+      @include directionX;
+      column-gap: 10px;
+      margin-top: 30px;
+      .priceDiscount {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 26px;
+      }
+      .box {
+        width: 51px;
+        height: 27px;
+        border-radius: 5px;
+        background: var(--pale-orange, #ffede0);
+        .discount {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 26px;
+          color: $orange;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
