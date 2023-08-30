@@ -29,7 +29,7 @@ const Content = () => {
     const result = {
       thumbnail: selectedImage,
       name: "Fall Limited Edition Sneakers",
-      price: "$125.00",
+      price: "125.00",
       quantity: quantity,
     };
     setCart([...cart, result]);

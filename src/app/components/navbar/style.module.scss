@@ -131,6 +131,10 @@
       .groupPrice {
         @include directionX;
         column-gap: 5px;
+        .totalPrice {
+          color: black;
+          font-weight: 700;
+        }
       }
     }
     .addCart {

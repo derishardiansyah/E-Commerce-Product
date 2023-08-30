@@ -116,9 +116,12 @@ const Navbar = () => {
                 <div className={classes.itemInfo}>
                   <div className={classes.itemName}>{item.name}</div>
                   <div className={classes.groupPrice}>
-                    <div className={classes.itemPrice}>{item.price}</div>
+                    <div className={classes.itemPrice}>${item.price}</div>
                     <div className={classes.itemQuantity}>
                       x {item.quantity}
+                    </div>
+                    <div className={classes.totalPrice}>
+                      ${parseFloat(item.price) * item.quantity}
                     </div>
                   </div>
                 </div>
