@@ -29,6 +29,7 @@ const Navbar = () => {
     setCartItems(initialCart);
   }, []);
 
+  // tanpa refresh data not empty
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -46,13 +47,13 @@ const Navbar = () => {
             />
           </div>
           <div className={classes.titleBrand}>sneakers</div>
-          <div className={classes.menuBrand}>
-            <div className={classes.listBrand}>Collections</div>
-            <div className={classes.listBrand}>Men</div>
-            <div className={classes.listBrand}>Women</div>
-            <div className={classes.listBrand}>About</div>
-            <div className={classes.listBrand}>Contact</div>
-          </div>
+          <ul className={classes.menuBrand}>
+            <li className={classes.listBrand}>Collections</li>
+            <li className={classes.listBrand}>Men</li>
+            <li className={classes.listBrand}>Women</li>
+            <li className={classes.listBrand}>About</li>
+            <li className={classes.listBrand}>Contact</li>
+          </ul>
         </div>
         <div className={classes.rightNavbar}>
           <div className={classes.cart} onClick={handleCart}>
@@ -110,16 +111,24 @@ const Navbar = () => {
                   width={50}
                   height={50}
                   alt="Cart Item"
+                  className={classes.cartItemImage}
                 />
                 <div className={classes.itemInfo}>
                   <div className={classes.itemName}>{item.name}</div>
-                  <div className={classes.itemPrice}>{item.price}</div>
-                  <div className={classes.itemQuantity}>
-                    Quantity: {item.quantity}
+                  <div className={classes.groupPrice}>
+                    <div className={classes.itemPrice}>{item.price}</div>
+                    <div className={classes.itemQuantity}>
+                      x {item.quantity}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
+            <button className={classes.addCart}>
+              <div className={classes.boxCart}>
+                <div className={classes.chekout}>Checkout</div>
+              </div>
+            </button>
           </div>
         </div>
       )}

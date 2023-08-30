@@ -87,9 +87,6 @@
         margin-top: 30px;
         margin-left: 25px;
       }
-      ul li {
-        list-style: none;
-      }
       .sidebarBrand {
         margin-left: 25px;
         margin-top: 40px;
@@ -111,9 +108,63 @@
     .cartName {
       font-size: 16px;
       font-weight: 700;
-      padding-left: 30px;
+      padding-left: 15px;
       padding-top: 20px;
       padding-bottom: 15px;
     }
+    .cartItem {
+      padding-left: 15px;
+      padding-top: 15px;
+      padding-right: 10px;
+      @include directionX;
+      column-gap: 10px;
+      .cartItemImage {
+        border-radius: 5px;
+      }
+      .itemInfo {
+        @include directionY;
+        font-size: 14px;
+        font-weight: 500;
+        color: $gray;
+        row-gap: 5px;
+      }
+      .groupPrice {
+        @include directionX;
+        column-gap: 5px;
+      }
+    }
+    .addCart {
+      border: none;
+      cursor: pointer;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background: none;
+      .boxCart:hover {
+        background-color: $orange;
+      }
+      .boxCart:active {
+        background-color: $orange;
+        transform: translateY(4px);
+      }
+      .boxCart {
+        width: 230px;
+        height: 40px;
+        background-color: $orange;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .chekout {
+          font-size: 14px;
+          color: $white;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  ul li {
+    list-style: none;
   }
 }
