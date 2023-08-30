@@ -1,14 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import classes from "./style.module.scss";
 
+interface CartItem {
+  thumbnail: string;
+  name: string;
+  price: string;
+  quantity: number;
+}
+
 const Navbar = () => {
   const [openMenu, setopenMenu] = useState(false);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const handleMenu = () => {
     setopenMenu(!openMenu);
   };
+
+  const [openCart, setopenCart] = useState(false);
+  const handleCart = () => {
+    setopenCart(!openCart);
+  };
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    const initialCart: CartItem[] = storedCart ? JSON.parse(storedCart) : [];
+    setCartItems(initialCart);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <div className={classes.navbar}>
@@ -32,7 +55,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className={classes.rightNavbar}>
-          <div className={classes.cart}>
+          <div className={classes.cart} onClick={handleCart}>
             <Image
               src="/Assets/images/icon-cart-gray.svg"
               width={20}
@@ -70,6 +93,33 @@ const Navbar = () => {
               <li>About</li>
               <li>Contact</li>
             </ul>
+          </div>
+        </div>
+      )}
+
+      {/* cart */}
+      {openCart && (
+        <div className={classes.sidebarCart}>
+          <div className={classes.cartName}>Cart</div>
+          <hr />
+          <div className={classes.cartItems}>
+            {cartItems.map((item, index) => (
+              <div key={index} className={classes.cartItem}>
+                <Image
+                  src={item.thumbnail}
+                  width={50}
+                  height={50}
+                  alt="Cart Item"
+                />
+                <div className={classes.itemInfo}>
+                  <div className={classes.itemName}>{item.name}</div>
+                  <div className={classes.itemPrice}>{item.price}</div>
+                  <div className={classes.itemQuantity}>
+                    Quantity: {item.quantity}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

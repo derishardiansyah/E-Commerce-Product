@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./style.module.scss";
 
 const Content = () => {
@@ -9,6 +9,7 @@ const Content = () => {
   const [selectedImage, setSelectedImage] = useState(
     "/Assets/images/image-product-1.jpg"
   );
+  const [cart, setCart] = useState<any>([]);
 
   const handleMin = () => {
     if (quantity > 0) {
@@ -25,9 +26,18 @@ const Content = () => {
   };
 
   const addToCart = () => {
-    const result = quantity;
-    console.log(result);
+    const result = {
+      thumbnail: selectedImage,
+      name: "Fall Limited Edition Sneakers",
+      price: "$125.00",
+      quantity: quantity,
+    };
+    setCart([...cart, result]);
+    setQuantity(0);
   };
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div className={classes.content}>
@@ -150,7 +160,7 @@ const Content = () => {
               />
             </div>
           </div>
-          <div className={classes.addCart} onClick={addToCart}>
+          <button className={classes.addCart} onClick={addToCart}>
             <div className={classes.boxCart}>
               <div className={classes.imageCart}>
                 <Image
@@ -162,7 +172,7 @@ const Content = () => {
               </div>
               <div className={classes.addToCart}>Add to cart</div>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
