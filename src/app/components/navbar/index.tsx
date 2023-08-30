@@ -1,11 +1,27 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import classes from "./style.module.scss";
 
 const Navbar = () => {
+  const [openMenu, setopenMenu] = useState(false);
+  const handleMenu = () => {
+    setopenMenu(!openMenu);
+  };
+
   return (
     <div className={classes.navbar}>
       <div className={classes.navbarBrand}>
         <div className={classes.leftBrand}>
+          <div className={classes.btnMobile} onClick={handleMenu}>
+            <Image
+              src="/Assets/images/icon-menu.svg"
+              alt="menu"
+              width={15}
+              height={15}
+            />
+          </div>
           <div className={classes.titleBrand}>sneakers</div>
           <div className={classes.menuBrand}>
             <div className={classes.listBrand}>Collections</div>
@@ -34,18 +50,29 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* <div className={classes.vector}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1141"
-          height="3"
-          viewBox="0 0 1141 3"
-          fill="none"
-        >
-          <path d="M0 2L1141 1" stroke="#F7F8FD" stroke-width="2" />
-        </svg>
-      </div> */}
-      {/* <hr /> */}
+
+      {/* menu */}
+      {openMenu && (
+        <div className={classes.overlay}>
+          <div className={classes.sidebarMenu}>
+            <Image
+              src="/Assets/images/close.png"
+              alt="menu"
+              width={15}
+              height={15}
+              onClick={handleMenu}
+              className={classes.closeMobile}
+            />
+            <ul className={classes.sidebarBrand}>
+              <li>Collections</li>
+              <li>Men</li>
+              <li>Women</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
