@@ -30,6 +30,15 @@ const Navbar = () => {
     setCartItems(initialCart);
   }, [cartItems]);
 
+  const handleRemoveFromCart = (index: number) => {
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    setCartItems(updatedCart);
+
+    // Update localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   return (
     <div className={classes.navbar}>
       <div className={classes.navbarBrand}>
@@ -102,24 +111,37 @@ const Navbar = () => {
           <div className={classes.cartItems}>
             {cartItems.map((item, index) => (
               <div key={index} className={classes.cartItem}>
-                <Image
-                  src={item.thumbnail}
-                  width={50}
-                  height={50}
-                  alt="Cart Item"
-                  className={classes.cartItemImage}
-                />
-                <div className={classes.itemInfo}>
-                  <div className={classes.itemName}>{item.name}</div>
-                  <div className={classes.groupPrice}>
-                    <div className={classes.itemPrice}>${item.price}</div>
-                    <div className={classes.itemQuantity}>
-                      x {item.quantity}
-                    </div>
-                    <div className={classes.totalPrice}>
-                      ${parseFloat(item.price) * item.quantity}
+                <div className={classes.leftItem}>
+                  <Image
+                    src={item.thumbnail}
+                    width={50}
+                    height={50}
+                    alt="Cart Item"
+                    className={classes.cartItemImage}
+                  />
+                  <div className={classes.itemInfo}>
+                    <div className={classes.itemName}>{item.name}</div>
+                    <div className={classes.groupPrice}>
+                      <div className={classes.itemPrice}>${item.price}</div>
+                      <div className={classes.itemQuantity}>
+                        x {item.quantity}
+                      </div>
+                      <div className={classes.totalPrice}>
+                        ${parseFloat(item.price) * item.quantity}
+                      </div>
                     </div>
                   </div>
+                </div>
+                <div className={classes.removeCart}>
+                  <Image
+                    src="/Assets/images/remove.png"
+                    width={20}
+                    height={20}
+                    alt="remove Cart"
+                    onClick={() => {
+                      handleRemoveFromCart(index);
+                    }}
+                  />
                 </div>
               </div>
             ))}
