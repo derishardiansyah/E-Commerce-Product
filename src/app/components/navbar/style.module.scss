@@ -53,9 +53,20 @@
           align-items: center;
           cursor: pointer;
           align-items: center;
+          position: relative;
         }
-        .listBrand:hover {
-          border-bottom: 2px solid $orange;
+        .listBrand::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $orange;
+          bottom: -2px;
+          transform: scale(0, 1);
+
+          position: absolute;
+        }
+        .listBrand:hover:after {
+          transform: scale(1, 1);
         }
       }
     }

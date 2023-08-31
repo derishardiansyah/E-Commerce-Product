@@ -13,6 +13,7 @@ interface CartItem {
 
 const Navbar = () => {
   const [openMenu, setopenMenu] = useState(false);
+
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const handleMenu = () => {
     setopenMenu(!openMenu);
@@ -27,11 +28,6 @@ const Navbar = () => {
     const storedCart = localStorage.getItem("cart");
     const initialCart: CartItem[] = storedCart ? JSON.parse(storedCart) : [];
     setCartItems(initialCart);
-  }, []);
-
-  // tanpa refresh data not empty
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (

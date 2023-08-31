@@ -35,6 +35,14 @@ const Content = () => {
     setCart([...cart, result]);
     setQuantity(0);
   };
+
+  // data tidak hilang saat refresh
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    const initialCart = storedCart ? JSON.parse(storedCart) : [];
+    setCart(initialCart);
+  }, []);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
