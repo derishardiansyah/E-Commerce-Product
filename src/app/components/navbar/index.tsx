@@ -135,8 +135,8 @@ const Navbar = () => {
                 <div className={classes.removeCart}>
                   <Image
                     src="/Assets/images/remove.png"
-                    width={20}
-                    height={20}
+                    width={17}
+                    height={17}
                     alt="remove Cart"
                     onClick={() => {
                       handleRemoveFromCart(index);
