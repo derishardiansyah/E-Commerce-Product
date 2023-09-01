@@ -6,9 +6,14 @@ import classes from "./style.module.scss";
 
 const Content = () => {
   const [quantity, setQuantity] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(
-    "/Assets/images/image-product-1.jpg"
-  );
+  const imageAssets = [
+    "/Assets/images/image-product-1.jpg",
+    "/Assets/images/image-product-2.jpg",
+    "/Assets/images/image-product-3.jpg",
+    "/Assets/images/image-product-4.jpg",
+  ];
+
+  const [selectedImage, setSelectedImage] = useState(imageAssets[0]);
   const [cart, setCart] = useState<any>([]);
   const [openModal, setopenModal] = useState(false);
 
@@ -65,74 +70,22 @@ const Content = () => {
           </div>
 
           <div className={classes.product}>
-            <div
-              className={`${classes.thumbnailImage} ${
-                selectedImage === "/Assets/images/image-product-1.jpg"
-                  ? classes.activeThumbnail
-                  : ""
-              }`}
-              onClick={() =>
-                handleThumbnailClick("/Assets/images/image-product-1.jpg")
-              }
-            >
-              <Image
-                src="/Assets/images/image-product-1.jpg"
-                width={62}
-                height={62}
-                alt="Product-1"
-              />
-            </div>
-            <div
-              className={`${classes.thumbnailImage} ${
-                selectedImage === "/Assets/images/image-product-2.jpg"
-                  ? classes.activeThumbnail
-                  : ""
-              }`}
-              onClick={() =>
-                handleThumbnailClick("/Assets/images/image-product-2.jpg")
-              }
-            >
-              <Image
-                src="/Assets/images/image-product-2.jpg"
-                width={62}
-                height={62}
-                alt="Product-2"
-              />
-            </div>
-            <div
-              className={`${classes.thumbnailImage} ${
-                selectedImage === "/Assets/images/image-product-3.jpg"
-                  ? classes.activeThumbnail
-                  : ""
-              }`}
-              onClick={() =>
-                handleThumbnailClick("/Assets/images/image-product-3.jpg")
-              }
-            >
-              <Image
-                src="/Assets/images/image-product-3.jpg"
-                width={62}
-                height={62}
-                alt="Product-3"
-              />
-            </div>
-            <div
-              className={`${classes.thumbnailImage} ${
-                selectedImage === "/Assets/images/image-product-4.jpg"
-                  ? classes.activeThumbnail
-                  : ""
-              }`}
-              onClick={() =>
-                handleThumbnailClick("/Assets/images/image-product-4.jpg")
-              }
-            >
-              <Image
-                src="/Assets/images/image-product-4.jpg"
-                width={62}
-                height={62}
-                alt="Product-4"
-              />
-            </div>
+            {imageAssets.map((image, index) => (
+              <div
+                key={index}
+                className={`${classes.thumbnailImage} ${
+                  selectedImage === image ? classes.activeThumbnail : ""
+                }`}
+                onClick={() => handleThumbnailClick(image)}
+              >
+                <Image
+                  src={image}
+                  width={62}
+                  height={62}
+                  alt={`Product-${index + 1}`}
+                />
+              </div>
+            ))}
           </div>
         </div>
         <div className={classes.description}>
@@ -214,76 +167,23 @@ const Content = () => {
                 className={classes.thumbnailPreview}
               />
             </div>
-
             <div className={classes.product}>
-              <div
-                className={`${classes.thumbnailImage} ${
-                  selectedImage === "/Assets/images/image-product-1.jpg"
-                    ? classes.activeThumbnail
-                    : ""
-                }`}
-                onClick={() =>
-                  handleThumbnailClick("/Assets/images/image-product-1.jpg")
-                }
-              >
-                <Image
-                  src="/Assets/images/image-product-1.jpg"
-                  width={62}
-                  height={62}
-                  alt="Product-1"
-                />
-              </div>
-              <div
-                className={`${classes.thumbnailImage} ${
-                  selectedImage === "/Assets/images/image-product-2.jpg"
-                    ? classes.activeThumbnail
-                    : ""
-                }`}
-                onClick={() =>
-                  handleThumbnailClick("/Assets/images/image-product-2.jpg")
-                }
-              >
-                <Image
-                  src="/Assets/images/image-product-2.jpg"
-                  width={62}
-                  height={62}
-                  alt="Product-2"
-                />
-              </div>
-              <div
-                className={`${classes.thumbnailImage} ${
-                  selectedImage === "/Assets/images/image-product-3.jpg"
-                    ? classes.activeThumbnail
-                    : ""
-                }`}
-                onClick={() =>
-                  handleThumbnailClick("/Assets/images/image-product-3.jpg")
-                }
-              >
-                <Image
-                  src="/Assets/images/image-product-3.jpg"
-                  width={62}
-                  height={62}
-                  alt="Product-3"
-                />
-              </div>
-              <div
-                className={`${classes.thumbnailImage} ${
-                  selectedImage === "/Assets/images/image-product-4.jpg"
-                    ? classes.activeThumbnail
-                    : ""
-                }`}
-                onClick={() =>
-                  handleThumbnailClick("/Assets/images/image-product-4.jpg")
-                }
-              >
-                <Image
-                  src="/Assets/images/image-product-4.jpg"
-                  width={62}
-                  height={62}
-                  alt="Product-4"
-                />
-              </div>
+              {imageAssets.map((image, index) => (
+                <div
+                  key={index}
+                  className={`${classes.thumbnailImage} ${
+                    selectedImage === image ? classes.activeThumbnail : ""
+                  }`}
+                  onClick={() => handleThumbnailClick(image)}
+                >
+                  <Image
+                    src={image}
+                    width={62}
+                    height={62}
+                    alt={`Product-${index + 1}`}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

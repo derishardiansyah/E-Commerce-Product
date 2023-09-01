@@ -28,7 +28,7 @@ const Navbar = () => {
     const storedCart = localStorage.getItem("cart");
     const initialCart: CartItem[] = storedCart ? JSON.parse(storedCart) : [];
     setCartItems(initialCart);
-  });
+  }, []);
 
   const handleRemoveFromCart = (index: number) => {
     const updatedCart = [...cartItems];
